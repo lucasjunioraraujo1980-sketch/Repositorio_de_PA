@@ -1,0 +1,43 @@
+def menu ():
+    print("1 - checar saldo")
+    print("2 - depositar")
+    print("3 - sacar")
+    print("4 - sair")
+    return input("escolha: ")
+
+def depositar(saldo, valor):
+    if valor > 0:
+        saldo += valor
+    else:
+        print("Valor inválido.")
+    return saldo
+
+def sacar(saldo, valor):
+    if valor <= 0:
+        print("Valor inválido.")
+    elif valor > saldo:
+        print("Saldo insuficiente.")
+    else:
+        saldo -= valor
+    return saldo
+
+        
+saldo = 0
+
+while True:
+    opcao = menu()
+
+    if opcao == "1":
+        print(f"saldo: {saldo:.2f}")
+
+    elif opcao == "2":
+        saldo = depositar(saldo, float(input("Valor: ")))
+
+    elif opcao == "3":
+        saldo = sacar(saldo, float(input("Valor: ")))
+
+    elif opcao == "4":
+        break
+
+    else:
+        print("Opção inválida.")
