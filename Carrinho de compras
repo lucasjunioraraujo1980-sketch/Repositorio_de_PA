@@ -1,0 +1,39 @@
+def exibir_catalogo():
+    print("1 - Arroz (R$ 20)")
+    print("2 - Feijão (R$ 10)")
+    print("3 - Macarrão (R$ 8)")
+    print("4 - Leite (R$ 6)")
+    print("5 - Finalizar")
+
+def calcular_total(itens):
+    return sum(itens)
+
+def aplicar_desconto(total):
+    if total > 50:
+        total *= 0.9
+    return total
+
+def exibir_resumo(itens, total):
+    print(f"\nItens comprados: {len(itens)}")
+    print(f"Total: R$ {total:.2f}")
+
+precos = [20, 10, 8, 6]
+itens = []
+
+while True:
+    exibir_catalogo()
+    opcao = input("Escolha: ")
+
+    if opcao in ["1", "2", "3", "4"]:
+        itens.append(precos[int(opcao) - 1])
+
+    elif opcao == "5":
+        break
+
+    else:
+        print("Opção inválida.")
+
+total = calcular_total(itens)
+total = aplicar_desconto(total)
+
+exibir_resumo(itens, total)
